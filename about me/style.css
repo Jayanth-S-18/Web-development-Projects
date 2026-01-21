@@ -1,0 +1,145 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0a0f0a 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    line-height:1.6;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.glass-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px border rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #4CAF50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #888;
+    font-style: italic;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-card img {
+    border-radius: 50%;
+    border: 4px solid #4CAF50;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.profile-card img:hover {
+    transform: scale(1.05);
+}
+
+.linkedin-tag {
+    margin-top: 10px;
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.details h2, .edu-section h2, .interests h2 {
+    color: #4CAF50;
+    border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.details ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+}
+
+.grade {
+    font-weight: bold;
+    color: #fff;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Interest Tags */
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.interest-tags span {
+    background: rgba(76, 175, 80, 0.15);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #4CAF50;
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}

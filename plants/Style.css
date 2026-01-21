@@ -1,0 +1,138 @@
+/* --- MAIN PAGE STYLING --- */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4fbf4;
+    color: #2d3e2d;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Header & Marquee */
+header {
+    background: #1b4d3e;
+    color: white;
+    padding: 30px 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+marquee {
+    background: #2e7d32;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* About Section Card */
+.about {
+    background: white;
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 900px;
+    border-radius: 12px;
+    border-left: 10px solid #4caf50;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.about h1 {
+    margin-bottom: 15px;
+    color: #1b4d3e;
+}
+
+/* Image Map Section */
+#Type {
+    margin: 40px 0;
+}
+
+.note {
+    color: #e67e22;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.image-wrapper {
+    display: inline-block;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+#first {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Table of Contents Grid */
+.toc {
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.toc h2 {
+    color: #1b4d3e;
+    margin-bottom: 25px;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.links-grid a {
+    background: #4caf50;
+    color: white;
+    padding: 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.links-grid a:hover {
+    background: #1b4d3e;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+.home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #2e7d32; /* A nice forest green */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+.home-button:hover {
+    background-color: #1b5e20; /* Darker green on hover */
+}

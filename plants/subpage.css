@@ -1,0 +1,114 @@
+/* --- SUB-PAGE STYLING --- */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eef5ee;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 50px 20px;
+    color: #333;
+}
+
+/* Main Container */
+.container {
+    background: white;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Header & Back Button */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #4caf50;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #1b4d3e;
+    font-size: 2.2rem;
+}
+
+.back-btn {
+    text-decoration: none;
+    background: #1b4d3e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: #2e7d32;
+}
+
+/* Content Flexbox Layout */
+.content-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.content-box img {
+    width: 320px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.text h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+/* "Did You Know" Accent Box */
+.did-you-know {
+    background: #f1f8e9;
+    border: 2px dashed #2e7d32;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.did-you-know h3 {
+    margin-top: 0;
+    color: #2e7d32;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .content-box {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .content-box img {
+        width: 100%;
+    }
+}
