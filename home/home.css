@@ -1,0 +1,217 @@
+/* home.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Updated to match the login/assessment theme */
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* Header Sections */
+.main-container {
+    display: flex;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    align-items: center;
+}
+
+/* Left part (Logo) */
+.left-image {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/* Right part (Welcome & Nav) */
+.right-content {
+    flex: 1;
+}
+
+.welcome-header {
+    font-size: 2.2rem;
+    color: #2e7d32; /* Changed from Red to Green */
+    margin-bottom: 20px;
+}
+
+/* Navigation Cards (Top) */
+.info-sections {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.upcard {
+    padding: 12px 25px;
+    background-color: white;
+    border: 2px solid #4caf50; /* Clean green border */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.upcard:hover {
+    transform: translateY(-5px);
+    background-color: #4caf50;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.upcard a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.upcard:hover a {
+    color: white;
+}
+
+/* Marquee Text */
+marquee {
+    background: #e8f5e9;
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+#facts {
+    color: #2e7d32; /* Professional Green */
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Section Title */
+#ontop {
+    color: #2e7d32;
+    margin-top: 40px;
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+/* Plant Grid Section */
+.plant-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px;
+    padding: 40px;
+}
+
+/* Individual Plant Card Container */
+.plant-item {
+    width: 300px;
+    text-align: center;
+}
+
+.plant-item h1 {
+    font-size: 1.3rem;
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* The Cards */
+.card {
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.container {
+    padding: 20px;
+    background: white;
+}
+
+.container h4 {
+    margin: 0;
+    color: #333;
+}
+
+/* Card Hover Effects */
+.card:hover {
+    transform: translateY(-15px); 
+    box-shadow: 0 12px 25px rgba(46, 125, 50, 0.2);
+    border-color: #4caf50;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+#footer {
+    width: 100%;
+    text-align: center; 
+    color: white;
+    padding: 20px 0;
+    background: #2e7d32; /* Solid VIT Green */
+    margin-top: 60px;
+}
+/* User Profile Header Styling */
+.user-profile {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e8f5e9;
+    z-index: 1000;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.user-info i {
+    font-size: 1.2rem;
+}
+
+/* Sign Out Button */
+.signout-btn {
+    background-color: #f1f8f1;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.signout-btn:hover {
+    background-color: #d32f2f;
+    color: white;
+    border-color: #d32f2f;
+    transform: translateY(-2px);
+}

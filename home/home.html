@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Plants Kingdom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+
+    <div class="user-profile">
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span id="displayUser">Guest</span>
+        </div>
+        <button onclick="signOut()" class="signout-btn">
+            <i class="fas fa-sign-out-alt"></i> Sign Out
+        </button>
+    </div>
+
+    <div class="main-container">
+        <img src="https://img.collegepravesh.com/2015/12/Vellore-Institute-of-Technology-Logo.png" alt="VIT Logo" class="left-image">
+        <div class="right-content">
+            <center>
+                <h1 class="welcome-header">Welcome to Plants Kingdom</h1>
+                <div class="info-sections">
+                    <div class="upcard">
+                        <h3><a href="../about me/new.html">About Me</a></h3>
+                    </div>
+                    <div class="upcard">
+                        <h3><a href="../plants/firstpage.html">About Plants</a></h3>
+                    </div>
+                    <div class="upcard">
+                        <h3><a href="../Feedback/feedback.html">Feedback</a></h3>
+                    </div>
+                    <div class="upcard">
+                        <h3><a href="../assessment/assessment.html">Assessment</a></h3>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <marquee>
+        <h1 id="facts">Today's Interesting Facts!! Plants talk to each other through fungal networks in the soil.</h1>
+    </marquee>
+
+    <center>
+        <h1 id="ontop">Top 10 Most Rare Plants in the World!!</h1>
+    </center>
+
+    <section class="plant-grid">    
+        
+        <div class="plant-item">
+            <h1>Rafflesia Arnoldii</h1>
+            <div class="card">
+                <img src="https://floweraura-blog-img.s3.ap-south-1.amazonaws.com/Plant+Dec+2019-+Dec+2020/rafflesia-arnoldii.jpg" alt="Rafflesia">
+                <div class="container">
+                    <h4><b>Corpse Flower</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="plant-item">
+            <h1>Encephalartos Woodii</h1>
+            <div class="card">
+                <img src="https://floweraura-blog-img.s3.ap-south-1.amazonaws.com/Plant+Dec+2019-+Dec+2020/encephalartos-woodii.jpg" alt="Encephalartos">
+                <div class="container">
+                    <h4><b>Wood's Cycad</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="plant-item">
+            <h1>Nepenthes Tenax</h1>
+            <div class="card">
+                <img src="https://floweraura-blog-img.s3.ap-south-1.amazonaws.com/Plant+Dec+2019-+Dec+2020/nepenthes-tenax.jpg" alt="Nepenthes">
+                <div class="container">
+                    <h4><b>Tenacious Pitcher</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="plant-item">
+            <h1>Welwitschia</h1>
+            <div class="card">
+                <img src="https://floweraura-blog-img.s3.ap-south-1.amazonaws.com/Plant+Dec+2019-+Dec+2020/welwetschia.jpg" alt="Welwitschia">
+                <div class="container">
+                    <h4><b>Mirabilis</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="plant-item">
+            <h1>Pennantia Baylisiana</h1>
+            <div class="card">
+                <img src="https://floweraura-blog-img.s3.ap-south-1.amazonaws.com/Plant+Dec+2019-+Dec+2020/pennantia-baylisiana.jpg" alt="Pennantia">
+                <div class="container">
+                    <h4><b>Three Kings Kaikomako</b></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="plant-item">
+            <h1>Amorphophallus Titanum</h1>
+            <div class="card">
+                <img src="https://floweraura-blog-img.s3.ap-south-1.amazonaws.com/Plant+Dec+2019-+Dec+2020/amorphophallus-titanum-or-titan-arum.jpg" alt="Titan Arum">
+                <div class="container">
+                    <h4><b>Titan Arum</b></h4>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="footer">
+        <h3>&copy; 2026 Plant Kingdom Project | Designed by Jayanth S</h3>   
+    </div> 
+
+    <script>
+        function signOut() {
+            if(confirm("Are you sure you want to sign out?")) {
+                // Clear the active session key but leave registered user data intact
+                localStorage.removeItem('lastLoggedInUser');
+                window.location.href = "../login/login.html";
+            }
+        }
+    </script>
+</body>
+</html>

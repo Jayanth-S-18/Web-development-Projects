@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - Plant Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <style>
+        .password-container { position: relative; width: 100%; }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            cursor: pointer;
+            color: #666;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+    <h2 id="title">Join the Garden</h2>
+    <p id="roleText">Registering as <strong>Student</strong></p>
+
+    <div class="role-tabs">
+        <button type="button" class="tab-btn active" onclick="setRole('Student')">Student</button>
+        <button type="button" class="tab-btn" onclick="setRole('Faculty')">Faculty</button>
+        <button type="button" class="tab-btn" onclick="setRole('Alumni')">Alumni</button>
+        <button type="button" class="tab-btn" onclick="setRole('Scholar')">Scholar</button>
+    </div>
+
+    <form id="mainForm">
+        <div class="input-group">
+            <input type="text" id="uName" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <input type="email" id="uEmail" placeholder="Email Address" required>
+        </div>
+        <div class="input-group password-container">
+            <input type="password" id="uPass" placeholder="Password" required>
+            <i class="fa-solid fa-eye toggle-password" onclick="toggleVisibility('uPass', this)"></i>
+        </div>
+        <div class="input-group password-container" id="confirmWrapper">
+            <input type="password" id="uConfirm" placeholder="Confirm Password" required>
+            <i class="fa-solid fa-eye toggle-password" onclick="toggleVisibility('uConfirm', this)"></i>
+        </div>
+        <button type="submit" id="btnAction" class="submit-btn">Create Account</button>
+    </form>
+
+    <div class="options">
+        <a onclick="toggleMode()" id="toggleLink">Already have an account? Login here</a>
+    </div>
+</div>
+
+    <script>
+        let role = "Student";
+        let isLogin = false;
+        function setRole(selected) {
+    role = selected;
+    
+    // 1. Update the descriptive text
+    const actionText = isLogin ? 'Logging in' : 'Registering';
+    document.getElementById('roleText').innerHTML = `${actionText} as <strong>${role}</strong>`;
+    
+    // 2. Fix the colors: Remove 'active' from everyone, then add to the clicked one
+    const allTabs = document.querySelectorAll('.tab-btn');
+    allTabs.forEach(btn => {
+        btn.classList.remove('active'); // This removes the green color
+        
+        // Match by text content to add the green color back to the right one
+        if (btn.innerText === selected) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+        function toggleVisibility(id, icon) {
+            const input = document.getElementById(id);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
+
+        function toggleMode() {
+            isLogin = !isLogin;
+            const uName = document.getElementById('uName');
+            const confirmWrap = document.getElementById('confirmWrapper');
+            const btn = document.getElementById('btnAction');
+            const title = document.getElementById('title');
+            const link = document.getElementById('toggleLink');
+
+            title.innerText = isLogin ? "Welcome Back" : "Join the Garden";
+            btn.innerText = isLogin ? "Login" : "Create Account";
+            link.innerText = isLogin ? "Need an account? Register" : "Already have an account? Login";
+            
+            if(isLogin) {
+                uName.classList.add('hidden'); uName.required = false;
+                confirmWrap.classList.add('hidden'); 
+                document.getElementById('uConfirm').required = false;
+            } else {
+                uName.classList.remove('hidden'); uName.required = true;
+                confirmWrap.classList.remove('hidden');
+                document.getElementById('uConfirm').required = true;
+            }
+            setRole(role);
+        }
+
+        document.getElementById('mainForm').onsubmit = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('uEmail').value;
+            const pass = document.getElementById('uPass').value;
+
+            if (isLogin) {
+                // LOGIN LOGIC: Check if user exists in localStorage
+                const storedUser = JSON.parse(localStorage.getItem(email));
+                
+                if (!storedUser) {
+                    alert("No account found with this email. Please register first!");
+                } else if (storedUser.password !== pass) {
+                    alert("Incorrect password!");
+                } else if (storedUser.role !== role) {
+                    alert(`This email is registered as ${storedUser.role}, not ${role}!`);
+                } else {
+                    alert(`Welcome back, ${storedUser.username}!`);
+                    window.location.href = "../home/home.html";
+                }
+            } else {
+                // REGISTER LOGIC: Store credentials
+                const confirmPass = document.getElementById('uConfirm').value;
+                const user = document.getElementById('uName').value;
+
+                if (pass.length < 6) return alert("Password must be at least 6 characters.");
+                if (pass !== confirmPass) return alert("Passwords do not match!");
+
+                const userData = {
+                    username: user,
+                    email: email,
+                    password: pass,
+                    role: role
+                };
+
+                localStorage.setItem(email, JSON.stringify(userData));
+                alert("Registration Successful! Now you can Login.");
+                toggleMode(); // Switch to login mode
+            }
+        };
+    </script>
+</body>
+</html>

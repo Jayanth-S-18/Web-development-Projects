@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Assessment</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .quiz-container { max-height: 500px; overflow-y: auto; text-align: left; padding: 10px; }
+        .question-block { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .question-block p { font-weight: bold; margin-bottom: 10px; color: #333; }
+        .score-display { font-size: 1.2rem; color: #2e7d32; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="card" style="width: 600px;">
+        <h2>Plant Kingdom Quiz</h2>
+        <p>Answer the 10 questions below to test your knowledge!</p>
+        
+        <div id="quiz" class="quiz-container">
+            </div>
+
+        <button onclick="checkQuiz()" style="margin-top:20px;">Submit Assessment</button>
+        <div id="res" class="score-display"></div>
+    </div>
+
+    <script>
+        const questions = [
+    { q: "Which plants grow along the ground?", a: "Creepers", options: ["Creepers", "Trees", "Shrubs"] },
+    { q: "Which plant is known as the 'Corpse Flower'?", a: "Rafflesia Arnoldii", options: ["Ghost Orchid", "Rafflesia Arnoldii", "Middlemist Red"] },
+    { q: "What do climbers use to climb?", a: "Tendrils", options: ["Roots", "Tendrils", "Trunks"] },
+    { q: "Which is the largest individual flower on Earth?", a: "Rafflesia", options: ["Sunflower", "Rafflesia", "Titan Arum"] },
+    { q: "Rose and Hibiscus are examples of...", a: "Shrubs", options: ["Shrubs", "Herbs", "Trees"] },
+    { q: "The Titan Arum is also known as...", a: "Amorphophallus Titanum", options: ["Amorphophallus Titanum", "Encephalartos", "Pennantia"] },
+    { q: "Which plant is only found on Three Kings Island?", a: "Pennantia Baylisiana", options: ["Banyan", "Pennantia Baylisiana", "Palm"] },
+    { q: "Which rare plant looks like a palm but is a cycad?", a: "Encephalartos Woodii", options: ["Fern", "Encephalartos Woodii", "Cactus"] },
+    { q: "Tulsi and Mint are examples of...", a: "Herbs", options: ["Herbs", "Shrubs", "Creepers"] },
+    { q: "Plants provide us with which essential gas?", a: "Oxygen", options: ["Nitrogen", "Oxygen", "Carbon Dioxide"] }
+];
+
+function loadQuiz() {
+    const quizContainer = document.getElementById('quiz');
+    let html = '';
+    questions.forEach((item, index) => {
+        html += `<div class="question-block" id="block${index}">
+            <p>${index + 1}. ${item.q}</p>`;
+        item.options.forEach(opt => {
+            html += `<input type="radio" name="q${index}" value="${opt}"> ${opt}<br>`;
+        });
+        // Hidden feedback div for each question
+        html += `<div id="feedback${index}" class="hidden" style="margin-top:5px; font-size:13px; color:#d32f2f;"></div>`;
+        html += `</div>`;
+    });
+    quizContainer.innerHTML = html;
+}
+
+function checkQuiz() {
+    let score = 0;
+    let allAnswered = true;
+
+    // First, check if all questions are answered
+    questions.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (!selected) {
+            allAnswered = false;
+            document.getElementById(`block${index}`).style.borderLeft = "4px solid #d32f2f";
+        } else {
+            document.getElementById(`block${index}`).style.borderLeft = "none";
+        }
+    });
+
+    if (!allAnswered) {
+        alert("Please answer all questions before submitting!");
+        return;
+    }
+
+    // If all answered, calculate score and show answers
+    questions.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        const feedback = document.getElementById(`feedback${index}`);
+        
+        feedback.classList.remove('hidden');
+        
+        if (selected.value === item.a) {
+            score++;
+            feedback.style.color = "#2e7d32";
+            feedback.innerText = "✓ Correct!";
+        } else {
+            feedback.style.color = "#d32f2f";
+            feedback.innerText = `✗ Incorrect. Correct answer: ${item.a}`;
+        }
+    });
+
+    const resDiv = document.getElementById('res');
+    resDiv.innerText = `Final Score: ${score} / ${questions.length}`;
+    resDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+loadQuiz();
+    </script>
+</body>
+</html>

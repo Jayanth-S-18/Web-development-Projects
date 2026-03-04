@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback | Plant Kingdom</title>
+    <link rel="stylesheet" href="./feedback.css">
+</head>
+<body>
+    <div class="feedback-container">
+        <header>
+            <h1>Share Your Feedback</h1>
+            <a href="../home/home.html" class="back-btn">← Back to Home</a>
+        </header>
+
+        <section class="form-wrapper">
+            <div class="intro-text">
+                <p>We would love to hear your thoughts about the <b>Plant Kingdom</b> project!</p>
+            </div>
+
+            <form id="feedbackForm">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="regno">Registration Number</label>
+                    <input type="text" id="regno" placeholder="e.g., 24BCE1234" required>
+                    <small id="regError" style="color: #d32f2f; display: none;">Invalid VIT Registration Number format.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="fav-plant">Which plant type did you enjoy most?</label>
+                    <select id="fav-plant">
+                        <option value="herbs">Herbs</option>
+                        <option value="shrubs">Shrubs</option>
+                        <option value="trees">Trees</option>
+                        <option value="climbers">Climbers</option>
+                        <option value="creepers">Creepers</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Your Comments</label>
+                    <textarea id="message" rows="5" placeholder="Tell us what you think..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Plant Kingdom Project | Designed by Jayanth S</p>
+    </footer>
+
+    <script>
+        document.getElementById('feedbackForm').onsubmit = function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const regno = document.getElementById('regno').value.toUpperCase();
+            const regError = document.getElementById('regError');
+
+            // VIT Registration Number Regex (e.g., 24BCE1234)
+            const regPattern = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
+
+            if (!regPattern.test(regno)) {
+                regError.style.display = "block";
+                document.getElementById('regno').style.borderColor = "#d32f2f";
+                return false;
+            } else {
+                regError.style.display = "none";
+                document.getElementById('regno').style.borderColor = "#ddd";
+            }
+
+            // If validation passes
+            alert(`Thank you for your feedback, ${name}!\nYour response has been recorded.`);
+            
+            // Redirect back to home after successful feedback
+            window.location.href = "../home/home.html";
+        };
+    </script>
+</body>
+</html>
